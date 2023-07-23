@@ -50,13 +50,15 @@ class StepTracker {
     }
 
     public void changeStepGoal() {//изменение цели кол-во шагов пользователем
-        int newGoalSteps = 0;
         System.out.println("Ваша текущая цель шагов составляет: " + goalByStepsPerDay);
         System.out.println("Укажите новое значение количества шагов:");
-        int newGoalNumberOfSteps = scanner.nextInt(); //пользователь вводит новые данные
-        newGoalSteps = newGoalNumberOfSteps; //новая цель шагов в месяц
-        goalByStepsPerDay = newGoalSteps;
-        System.out.println("Поставлена новая цель за месяц: " + newGoalSteps);
+        int newGoalOfSteps = scanner.nextInt(); //пользователь вводит новые данные
+        if (newGoalOfSteps > 0) {
+            goalByStepsPerDay = newGoalOfSteps;
+            System.out.println("Поставлена новая цель за месяц: " + goalByStepsPerDay);
+        } else {
+            System.out.println("Поставленная цель должна быть больше 0.");
+        }
     }
 
     public void printStatistic() { //вывод статистики
